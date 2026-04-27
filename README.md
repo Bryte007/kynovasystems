@@ -1,173 +1,126 @@
-# Stadnet Technologies Website
+# KYNOVA Website
 
-A beautiful, modern, and responsive React website featuring a blue and white glassmorphism design theme. Built with React, React Router, and Vite for optimal performance.
+KYNOVA's marketing website and services showcase, built with React and Vite. The project includes routed service pages, SEO metadata, consent-aware Google Analytics loading, and a responsive frontend for product engineering, cloud, consulting, engineering, design, careers, and contact flows.
 
-## 🎨 Features
+## Overview
 
-- **Glassmorphism Design**: Modern frosted glass effect throughout the UI
-- **Blue & White Theme**: Professional color scheme with blue gradients
-- **Fully Responsive**: Optimized for all devices (mobile, tablet, desktop)
-- **10 Complete Pages**: Home, Solutions, 6 Service Pages, Careers, and Contact
-- **Smooth Animations**: Fade-in effects and micro-interactions
-- **SEO Optimized**: Proper meta tags and semantic HTML
-- **Modern Stack**: React 18, React Router v6, and Vite
+- React 18 + Vite single-page application
+- Route-based code splitting with `React.lazy`
+- SEO support via `react-helmet-async`
+- Consent-aware Google Analytics integration
+- Contact flow powered by EmailJS
+- Static assets, sitemap, and robots configuration included
 
-## 📋 Prerequisites
+## Pages
 
-Before you begin, ensure you have the following installed:
-- **Node.js** (v16 or higher)
-- **npm** or **yarn**
+- `/` - Home
+- `/about` - About
+- `/mobile-web-development` - Mobile & Web Development
+- `/cloud-computing` - Cloud Computing
+- `/consulting` - Consulting
+- `/engineering` - Engineering & Digitization
+- `/graphic-design` - Graphic Design
+- `/careers` - Careers
+- `/contact` - Contact
+- `/privacy` - Privacy Policy
+- `/terms` - Terms and Conditions
 
-## 🚀 Getting Started
+## Tech Stack
 
-### 1. Install Node.js
+- React
+- React Router
+- Vite
+- React Helmet Async
+- EmailJS Browser SDK
+- React Icons
 
-If you don't have Node.js installed, download and install it from [nodejs.org](https://nodejs.org/)
+## Prerequisites
 
-### 2. Navigate to Project Directory
+- Node.js 18+ recommended
+- npm
 
-```bash
-cd "/Users/christiansarpong/Documents/Stadnet Technologies/stadnet-website"
-```
+## Getting Started
 
-### 3. Install Dependencies
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-This will install all required packages including:
-- React and React DOM
-- React Router DOM
-- Vite and development tools
+2. Create a local environment file:
 
-### 4. Start Development Server
+```bash
+copy .env.example .env
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-The application will open at `http://localhost:5173`
+4. Open the local app in your browser:
 
-### 5. Build for Production
+```text
+http://localhost:5173
+```
+
+## Environment Variables
+
+The project expects these values in `.env`:
+
+```bash
+VITE_EMAILJS_SERVICE_ID=your_service_id_here
+VITE_EMAILJS_TEMPLATE_ID=your_template_id_here
+VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+## Available Scripts
+
+- `npm run dev` - Start the Vite development server
+- `npm run build` - Build the production bundle into `dist/`
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
+```text
+Kynova_systems/
+|-- public/                 Static assets, sitemap, robots, and brand images
+|-- src/
+|   |-- components/         Shared UI building blocks
+|   |-- contexts/           React context providers
+|   |-- hooks/              Reusable hooks
+|   |-- lib/                Consent and asset helpers
+|   |-- pages/              Route-level page components
+|   |-- App.jsx             Application routes and app shell
+|   |-- main.jsx            App entry point
+|   |-- index.css           Global styles
+|   `-- theme.css           Theme styles
+|-- .env.example            Example environment variables
+|-- package.json            Scripts and dependencies
+`-- vite.config.js          Vite configuration
+```
+
+## Build and Deployment
+
+Build the project with:
 
 ```bash
 npm run build
 ```
 
-The optimized production build will be created in the `dist` folder.
+The generated production files are written to `dist/`.
 
-## 📁 Project Structure
+This repository also includes:
 
-```
-stadnet-website/
-├── public/              # Static assets
-├── src/
-│   ├── components/      # Reusable components
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── ServiceCard.jsx
-│   │   └── Footer.jsx
-│   ├── pages/          # Page components
-│   │   ├── Home.jsx
-│   │   ├── Solutions.jsx
-│   │   ├── MobileWebDev.jsx
-│   │   ├── CloudComputing.jsx
-│   │   ├── GraphicDesign.jsx
-│   │   ├── ProductDesign.jsx
-│   │   ├── Consulting.jsx
-│   │   ├── Engineering.jsx
-│   │   ├── Careers.jsx
-│   │   └── Contact.jsx
-│   ├── App.jsx         # Main app component
-│   ├── main.jsx        # Entry point
-│   └── index.css       # Global styles & design system
-├── index.html          # HTML template
-├── package.json        # Dependencies
-└── vite.config.js      # Vite configuration
-```
+- `vercel.json` for Vercel deployment
+- `netlify.toml` for Netlify deployment
+- `public/sitemap.xml` and `public/robots.txt` for search indexing support
 
-## 🎨 Design System
+## Notes
 
-### Color Palette
-
-- **Primary Blue**: `#0066CC`
-- **Primary Dark**: `#003d7a`
-- **Primary Light**: `#3399FF`
-- **White**: `#FFFFFF`
-- **Off White**: `#F8F9FA`
-
-### Typography
-
-- **Headings**: Montserrat (600-800 weight)
-- **Body**: Inter (300-600 weight)
-
-### Glassmorphism
-
-The design features glassmorphism effects with:
-- Backdrop blur filters
-- Semi-transparent backgrounds
-- Subtle borders and shadows
-- Smooth hover transitions
-
-## 📄 Pages
-
-1. **Home** - Hero section with services overview
-2. **Solutions** - Comprehensive solutions listing
-3. **Mobile & Web Development** - Development services
-4. **Cloud Computing** - Cloud infrastructure services
-5. **Graphic Design** - Visual design services
-6. **Product Design** - UI/UX design services
-7. **Consulting** - IT consulting services
-8. **Engineering & Digitization** - Modernization services
-9. **Careers** - Job listings and opportunities
-10. **Contact** - Contact form and information
-
-## 🔧 Customization
-
-### Updating Colors
-
-Edit the CSS variables in `src/index.css`:
-
-```css
-:root {
-  --color-primary: #0066CC;
-  --color-primary-dark: #003d7a;
-  /* ... other colors */
-}
-```
-
-### Adding New Pages
-
-1. Create a new component in `src/pages/`
-2. Import and add the route in `src/App.jsx`
-3. Update navigation in `src/components/Navbar.jsx`
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: 320px - 767px
-- **Tablet**: 768px - 1023px
-- **Desktop**: 1024px - 1439px
-- **Large Desktop**: 1440px+
-
-## 🌐 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 📝 License
-
-This project is proprietary and confidential.
-
-## 👥 Contact
-
-**Stadnet Technologies**
-- Email: info@stadnet.com
-- Phone: +233 50 123 4567
-- Address: 123 Tech Street, Accra, Ghana
-
----
-
-Built with ❤️ by Stadnet Technologies
+- Google Analytics only loads after analytics consent is accepted.
+- EmailJS credentials must be configured before the contact form can work in a live environment.
+- `dist/` is intentionally ignored by Git and should be generated from source when deploying.
