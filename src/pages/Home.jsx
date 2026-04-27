@@ -20,6 +20,8 @@ import './Home.css';
 
 const Home = () => {
     const [openDomains, setOpenDomains] = useState({});
+    const [openSolutions, setOpenSolutions] = useState({});
+    const [openInsights, setOpenInsights] = useState({});
     const clientLogos = [
         'Enterprise Teams',
         'Public Sector',
@@ -421,8 +423,14 @@ const Home = () => {
                     </div>
 
                     <div className="home-solution-grid">
-                        {solutions.map((solution, index) => (
-                            <article className="home-solution-card home-solution-card-link" key={solution.title} data-aos="fade-up" data-aos-delay={index * 100}>
+                        {solutions.map((solution, index) => {
+                            const isOpen = Boolean(openSolutions[solution.title]);
+
+                            return (
+                            <article
+                                className={`home-solution-card ${isOpen ? 'open' : ''}`}
+                                key={solution.title}
+                            >
                                 <img
                                     className="home-card-image"
                                     src={solution.image.src}
@@ -434,11 +442,29 @@ const Home = () => {
                                     loading="lazy"
                                     decoding="async"
                                 />
-                                <h3>{solution.title}</h3>
-                                <p>{solution.description}</p>
-                                <Link className="home-solution-link" to={solution.path}>Learn more</Link>
+                                <button
+                                    type="button"
+                                    className="home-solution-toggle"
+                                    onClick={() => setOpenSolutions((current) => ({
+                                        ...current,
+                                        [solution.title]: !current[solution.title]
+                                    }))}
+                                    aria-expanded={isOpen}
+                                >
+                                    <div className="home-solution-heading">
+                                        <div>
+                                            <h3>{solution.title}</h3>
+                                        </div>
+                                    </div>
+                                    <span className="home-solution-plus" aria-hidden="true">{isOpen ? '-' : '+'}</span>
+                                </button>
+                                <div className="home-solution-body">
+                                    <p>{solution.description}</p>
+                                    <Link className="home-solution-link" to={solution.path}>Learn more</Link>
+                                </div>
                             </article>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     <div className="home-center-cta">
@@ -594,8 +620,11 @@ const Home = () => {
                     </div>
 
                     <div className="home-insight-grid">
-                        {insights.map((item, index) => (
-                            <article className="home-insight-card" key={item.title} data-aos="fade-up" data-aos-delay={index * 100}>
+                        {insights.map((item, index) => {
+                            const isOpen = Boolean(openInsights[item.title]);
+
+                            return (
+                            <article className={`home-insight-card ${isOpen ? 'open' : ''}`} key={item.title}>
                                 <img
                                     className="home-insight-thumb"
                                     src={item.image.src}
@@ -607,11 +636,29 @@ const Home = () => {
                                     loading="lazy"
                                     decoding="async"
                                 />
-                                <h3>{item.title}</h3>
-                                <p>{item.description}</p>
-                                <Link to={item.link}>Read more</Link>
+                                <button
+                                    type="button"
+                                    className="home-solution-toggle"
+                                    onClick={() => setOpenInsights((current) => ({
+                                        ...current,
+                                        [item.title]: !current[item.title]
+                                    }))}
+                                    aria-expanded={isOpen}
+                                >
+                                    <div className="home-solution-heading">
+                                        <div>
+                                            <h3>{item.title}</h3>
+                                        </div>
+                                    </div>
+                                    <span className="home-solution-plus" aria-hidden="true">{isOpen ? '-' : '+'}</span>
+                                </button>
+                                <div className="home-insight-body">
+                                    <p>{item.description}</p>
+                                    <Link to={item.link}>Read more</Link>
+                                </div>
                             </article>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
