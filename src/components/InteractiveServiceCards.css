@@ -1,0 +1,275 @@
+.interactive-services {
+    padding: var(--spacing-3xl) 0;
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    .interactive-services {
+        padding: var(--spacing-2xl) 0;
+    }
+}
+
+/* Section typography is defined globally in src/index.css */
+
+/* === FLEXBOX CARD GRID (redesigned from list) === */
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(33.333% - 1.5rem);
+    min-width: 280px;
+    padding: var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 42px rgba(8, 6, 26, 0.16);
+    overflow: hidden;
+}
+
+.service-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.service-item-link:focus-visible {
+    outline: 3px solid rgba(0, 102, 255, 0.35);
+    outline-offset: 4px;
+}
+
+.service-item.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 52px rgba(8, 6, 26, 0.22);
+}
+
+.service-media {
+    margin: calc(var(--spacing-xl) * -1) calc(var(--spacing-xl) * -1) var(--spacing-lg);
+}
+
+.service-image {
+    width: 100%;
+    height: 190px;
+    display: block;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Service Number — hidden in card layout */
+.service-number {
+    display: none;
+}
+
+/* Service Content */
+.service-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.service-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 102, 255, 0.08);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.service-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+}
+
+.service-item:hover .service-icon-wrapper {
+    background: var(--color-accent);
+    color: var(--color-white);
+    transform: scale(1.05);
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0;
+    transition: all var(--transition-fast);
+}
+
+.service-item:hover .service-title {
+    color: var(--color-accent-light);
+}
+
+.service-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+    position: relative;
+    margin-top: auto;
+}
+
+/* Underline removed */
+.service-link::after {
+    display: none;
+}
+
+.service-link:hover {
+    gap: 0.75rem;
+    color: var(--color-accent-dark);
+}
+
+.service-link svg {
+    transition: transform var(--transition-fast);
+}
+
+.service-link:hover svg {
+    transform: translateX(5px);
+}
+
+/* Service Line — hidden in card layout */
+.service-line {
+    display: none;
+}
+
+/* Responsive: 2 columns on tablet */
+@media (max-width: 1024px) {
+    .service-item {
+        flex: 1 1 calc(50% - 1.5rem);
+    }
+}
+
+/* Responsive: 1 column on mobile */
+@media (max-width: 768px) {
+    .services-list {
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-xs);
+    }
+
+    .service-item {
+        flex: 1 1 100%;
+        min-width: unset;
+        padding: var(--spacing-lg);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: var(--radius-lg);
+        box-shadow: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-media {
+        margin: calc(var(--spacing-lg) * -1) calc(var(--spacing-lg) * -1) var(--spacing-md);
+    }
+
+    .service-image {
+        height: 176px;
+    }
+
+    .service-item:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: none;
+    }
+
+    .service-item:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: none;
+    }
+
+    .service-header {
+        gap: var(--spacing-sm);
+    }
+
+    .service-icon-wrapper {
+        width: 42px;
+        height: 42px;
+        font-size: 1.25rem;
+        border-radius: var(--radius-md);
+    }
+
+    .service-title {
+        font-size: 1.125rem;
+    }
+
+    .service-description {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+
+    .service-link {
+        font-size: 0.9375rem;
+        padding: 0.25rem 0;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .service-icon-wrapper {
+        width: 36px;
+        height: 36px;
+        font-size: 1.125rem;
+    }
+
+    .service-title {
+        font-size: 1rem;
+    }
+
+    .service-description {
+        font-size: 0.875rem;
+    }
+}
+
+/* Landscape Mobile Fix */
+@media (max-width: 900px) and (orientation: landscape) {
+    .services-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .service-item {
+        flex: 1 1 calc(50% - 1.5rem);
+        min-width: unset;
+    }
+}

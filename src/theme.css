@@ -1,0 +1,19 @@
+/* === SECTION STYLES === */
+.section-alt {
+    background: transparent;
+}
+
+.section-white {
+    background: transparent;
+}
+
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
+    margin: var(--spacing-2xl) 0;
+}
+
+.section {
+    position: relative;
+}
