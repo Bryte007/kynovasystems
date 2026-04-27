@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -12,9 +12,9 @@ import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopOnMount from './components/ScrollToTopOnMount';
 import LoadingSpinner from './components/LoadingSpinner';
 import ScrollReveal from './components/ScrollReveal';
+import Home from './pages/Home';
 
 // Lazy-loaded pages — each page is split into its own chunk for faster initial load
-const Home = lazy(() => import('./pages/Home'));
 
 const MobileWebDev = lazy(() => import('./pages/MobileWebDev'));
 const CloudComputing = lazy(() => import('./pages/CloudComputing'));
@@ -27,6 +27,33 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+
+const DeferredChrome = () => {
+    const [isReady, setIsReady] = useState(false);
+
+    useEffect(() => {
+        const showDeferredChrome = () => setIsReady(true);
+
+        if ('requestIdleCallback' in window) {
+            const idleId = window.requestIdleCallback(showDeferredChrome, { timeout: 1500 });
+            return () => window.cancelIdleCallback(idleId);
+        }
+
+        const timeoutId = window.setTimeout(showDeferredChrome, 250);
+        return () => window.clearTimeout(timeoutId);
+    }, []);
+
+    if (!isReady) {
+        return null;
+    }
+
+    return (
+        <>
+            <CookieBanner />
+            <ScrollToTop />
+        </>
+    );
+};
 
 const AnimatedRoutes = () => {
     const location = useLocation();
@@ -74,8 +101,7 @@ function App() {
                                 <AnimatedRoutes />
                             </main>
                             <Footer />
-                            <CookieBanner />
-                            <ScrollToTop />
+                            <DeferredChrome />
                         </div>
                     </Router>
                 </ErrorBoundary>

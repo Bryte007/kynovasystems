@@ -18,204 +18,205 @@ import {
 import { imageAssets } from '../lib/siteAssets';
 import './Home.css';
 
+const clientLogos = [
+    'Enterprise Teams',
+    'Public Sector',
+    'Healthcare',
+    'Fintech',
+    'Agribusiness',
+    'NGOs',
+    'Operations',
+    'Growth Ventures'
+];
+
+const leaders = [
+    {
+        name: 'Ama Boateng',
+        role: 'Head of Delivery',
+        summary: '12+ years leading transformation programs across Africa and Europe.',
+        detail: 'Strategy, operations, and cross-functional execution for large digital initiatives.',
+        initials: 'AB',
+        image: imageAssets.leaderAma,
+        email: 'ama.boateng@kynova.com',
+        linkedin: null
+    },
+    {
+        name: 'Kwesi Mensah',
+        role: 'Lead Solutions Architect',
+        summary: '10+ years building cloud platforms, integrations, and internal systems.',
+        detail: 'Architecture, engineering leadership, and practical modernization roadmaps.',
+        initials: 'KM',
+        image: imageAssets.leaderKwesi,
+        email: 'kwesi.mensah@kynova.com',
+        linkedin: null
+    },
+    {
+        name: 'Naa Adjeley',
+        role: 'Senior Product Strategist',
+        summary: 'Specialist in service design, product delivery, and digital operating models.',
+        detail: 'Brings business clarity to product, process, and stakeholder decisions.',
+        initials: 'NA',
+        image: imageAssets.leaderNaa,
+        email: 'naa.adjeley@kynova.com',
+        linkedin: null
+    }
+];
+
+const solutions = [
+    {
+        title: 'Mobile & Web Development',
+        description: 'Build responsive customer experiences, internal tools, and digital products that are easier to scale and maintain.',
+        image: imageAssets.meeting,
+        path: '/mobile-web-development'
+    },
+    {
+        title: 'Cloud Computing',
+        description: 'Improve reliability, scalability, and release confidence with stronger cloud foundations and modern delivery environments.',
+        image: imageAssets.presentation,
+        path: '/cloud-computing'
+    },
+    {
+        title: 'Consulting',
+        description: 'Shape clearer technology priorities, operating models, and transformation roadmaps with practical strategic guidance.',
+        image: imageAssets.team,
+        path: '/consulting'
+    },
+    {
+        title: 'Engineering & Digitization',
+        description: 'Modernise legacy workflows, connect fragmented systems, and create better execution foundations across operations.',
+        image: imageAssets.presentation,
+        path: '/engineering'
+    },
+    {
+        title: 'Graphic Design',
+        description: 'Create stronger visual systems, product interfaces, and branded materials that help your organisation communicate clearly.',
+        image: imageAssets.meeting,
+        path: '/graphic-design'
+    }
+];
+
+const domains = [
+    {
+        title: 'Industrial Operations',
+        description: 'Digitise workflows, monitor assets, and reduce operational inefficiency across distributed teams.',
+        icon: <FaWarehouse />,
+        image: imageAssets.presentation
+    },
+    {
+        title: 'Healthcare & Life Sciences',
+        description: 'Strengthen service systems, reporting, and user-facing platforms that support care delivery.',
+        icon: <FaStethoscope />,
+        image: imageAssets.meeting
+    },
+    {
+        title: 'Agriculture & Supply Chain',
+        description: 'Improve planning, forecasting, visibility, and field operations across production ecosystems.',
+        icon: <FaSeedling />,
+        image: imageAssets.team
+    },
+    {
+        title: 'Digital & Professional Services',
+        description: 'Streamline internal operations, personalize experiences, and improve digital service performance.',
+        icon: <FaUsers />,
+        image: imageAssets.meeting
+    },
+    {
+        title: 'Sustainability & Green Tech',
+        description: 'Support climate and sustainability programs with better tools, measurement, and delivery systems.',
+        icon: <FaLeaf />,
+        image: imageAssets.presentation
+    }
+];
+
+const impactCards = [
+    {
+        title: 'Operations Visibility Platform',
+        sector: 'Enterprise Operations',
+        metrics: ['40% faster reporting cycles', 'Improved executive visibility', 'Reduced manual reconciliation'],
+        description: 'A connected dashboard and workflow setup that gave leadership clearer oversight across teams and milestones.',
+        image: imageAssets.presentation
+    },
+    {
+        title: 'Service Delivery Workflow Redesign',
+        sector: 'Professional Services',
+        metrics: ['Shorter turnaround time', 'Better handoff clarity', 'Stronger process consistency'],
+        description: 'A digital workflow redesign that turned fragmented coordination into a more measurable delivery system.',
+        image: imageAssets.meeting
+    }
+];
+
+const trustSignals = [
+    {
+        metric: '40% faster',
+        label: 'reporting cycles',
+        detail: 'from a connected operations visibility platform'
+    },
+    {
+        metric: 'Cross-functional',
+        label: 'delivery leadership',
+        detail: 'spanning strategy, systems, cloud, and execution'
+    },
+    {
+        metric: 'Phased',
+        label: 'launch approach',
+        detail: 'built to create visibility early and reduce delivery risk'
+    }
+];
+
+const trustNotes = [
+    {
+        title: 'Built around real operating pressure',
+        description: 'We focus on delivery bottlenecks, reporting drag, and fragmented handoffs that slow teams down.'
+    },
+    {
+        title: 'One partner across strategy and execution',
+        description: 'Instead of splitting planning from implementation, KYNOVA helps teams move from decision to delivery in one flow.'
+    }
+];
+
+const process = [
+    {
+        step: '01',
+        title: 'Discuss Your Delivery Goals',
+        description: 'We start with the business problem, constraints, urgency, and what success should look like.'
+    },
+    {
+        step: '02',
+        title: 'Shape the Right Build Approach',
+        description: 'We define the right team, scope, milestones, and working rhythm for the outcome you need.'
+    },
+    {
+        step: '03',
+        title: 'Launch in Measurable Phases',
+        description: 'We deliver in stages, create visibility, and refine based on results instead of guesswork.'
+    }
+];
+
+const insights = [
+    {
+        title: 'Designing Smarter Internal Platforms for Growth Teams',
+        description: 'How modern internal systems reduce chaos, improve reporting, and support better decision-making.',
+        link: '/about',
+        image: imageAssets.team
+    },
+    {
+        title: 'What Good Digital Transformation Actually Looks Like',
+        description: 'A practical view of transformation that focuses on process clarity, execution, and measurable change.',
+        link: '/about',
+        image: imageAssets.presentation
+    },
+    {
+        title: 'Where AI and Automation Create Real Business Value',
+        description: 'The strongest AI opportunities usually come from workflow bottlenecks, not hype alone.',
+        link: '/contact',
+        image: imageAssets.meeting
+    }
+];
+
 const Home = () => {
     const [openDomains, setOpenDomains] = useState({});
     const [openSolutions, setOpenSolutions] = useState({});
     const [openInsights, setOpenInsights] = useState({});
-    const clientLogos = [
-        'Enterprise Teams',
-        'Public Sector',
-        'Healthcare',
-        'Fintech',
-        'Agribusiness',
-        'NGOs',
-        'Operations',
-        'Growth Ventures'
-    ];
-
-    const leaders = [
-        {
-            name: 'Ama Boateng',
-            role: 'Head of Delivery',
-            summary: '12+ years leading transformation programs across Africa and Europe.',
-            detail: 'Strategy, operations, and cross-functional execution for large digital initiatives.',
-            initials: 'AB',
-            image: imageAssets.leaderAma,
-            email: 'ama.boateng@kynova.com',
-            linkedin: null
-        },
-        {
-            name: 'Kwesi Mensah',
-            role: 'Lead Solutions Architect',
-            summary: '10+ years building cloud platforms, integrations, and internal systems.',
-            detail: 'Architecture, engineering leadership, and practical modernization roadmaps.',
-            initials: 'KM',
-            image: imageAssets.leaderKwesi,
-            email: 'kwesi.mensah@kynova.com',
-            linkedin: null
-        },
-        {
-            name: 'Naa Adjeley',
-            role: 'Senior Product Strategist',
-            summary: 'Specialist in service design, product delivery, and digital operating models.',
-            detail: 'Brings business clarity to product, process, and stakeholder decisions.',
-            initials: 'NA',
-            image: imageAssets.leaderNaa,
-            email: 'naa.adjeley@kynova.com',
-            linkedin: null
-        }
-    ];
-
-    const solutions = [
-        {
-            title: 'Mobile & Web Development',
-            description: 'Build responsive customer experiences, internal tools, and digital products that are easier to scale and maintain.',
-            image: imageAssets.meeting,
-            path: '/mobile-web-development'
-        },
-        {
-            title: 'Cloud Computing',
-            description: 'Improve reliability, scalability, and release confidence with stronger cloud foundations and modern delivery environments.',
-            image: imageAssets.presentation,
-            path: '/cloud-computing'
-        },
-        {
-            title: 'Consulting',
-            description: 'Shape clearer technology priorities, operating models, and transformation roadmaps with practical strategic guidance.',
-            image: imageAssets.team,
-            path: '/consulting'
-        },
-        {
-            title: 'Engineering & Digitization',
-            description: 'Modernise legacy workflows, connect fragmented systems, and create better execution foundations across operations.',
-            image: imageAssets.presentation,
-            path: '/engineering'
-        },
-        {
-            title: 'Graphic Design',
-            description: 'Create stronger visual systems, product interfaces, and branded materials that help your organisation communicate clearly.',
-            image: imageAssets.meeting,
-            path: '/graphic-design'
-        }
-    ];
-
-    const domains = [
-        {
-            title: 'Industrial Operations',
-            description: 'Digitise workflows, monitor assets, and reduce operational inefficiency across distributed teams.',
-            icon: <FaWarehouse />,
-            image: imageAssets.presentation
-        },
-        {
-            title: 'Healthcare & Life Sciences',
-            description: 'Strengthen service systems, reporting, and user-facing platforms that support care delivery.',
-            icon: <FaStethoscope />,
-            image: imageAssets.meeting
-        },
-        {
-            title: 'Agriculture & Supply Chain',
-            description: 'Improve planning, forecasting, visibility, and field operations across production ecosystems.',
-            icon: <FaSeedling />,
-            image: imageAssets.team
-        },
-        {
-            title: 'Digital & Professional Services',
-            description: 'Streamline internal operations, personalize experiences, and improve digital service performance.',
-            icon: <FaUsers />,
-            image: imageAssets.meeting
-        },
-        {
-            title: 'Sustainability & Green Tech',
-            description: 'Support climate and sustainability programs with better tools, measurement, and delivery systems.',
-            icon: <FaLeaf />,
-            image: imageAssets.presentation
-        }
-    ];
-
-    const impactCards = [
-        {
-            title: 'Operations Visibility Platform',
-            sector: 'Enterprise Operations',
-            metrics: ['40% faster reporting cycles', 'Improved executive visibility', 'Reduced manual reconciliation'],
-            description: 'A connected dashboard and workflow setup that gave leadership clearer oversight across teams and milestones.',
-            image: imageAssets.presentation
-        },
-        {
-            title: 'Service Delivery Workflow Redesign',
-            sector: 'Professional Services',
-            metrics: ['Shorter turnaround time', 'Better handoff clarity', 'Stronger process consistency'],
-            description: 'A digital workflow redesign that turned fragmented coordination into a more measurable delivery system.',
-            image: imageAssets.meeting
-        }
-    ];
-
-    const trustSignals = [
-        {
-            metric: '40% faster',
-            label: 'reporting cycles',
-            detail: 'from a connected operations visibility platform'
-        },
-        {
-            metric: 'Cross-functional',
-            label: 'delivery leadership',
-            detail: 'spanning strategy, systems, cloud, and execution'
-        },
-        {
-            metric: 'Phased',
-            label: 'launch approach',
-            detail: 'built to create visibility early and reduce delivery risk'
-        }
-    ];
-
-    const trustNotes = [
-        {
-            title: 'Built around real operating pressure',
-            description: 'We focus on delivery bottlenecks, reporting drag, and fragmented handoffs that slow teams down.'
-        },
-        {
-            title: 'One partner across strategy and execution',
-            description: 'Instead of splitting planning from implementation, KYNOVA helps teams move from decision to delivery in one flow.'
-        }
-    ];
-
-    const process = [
-        {
-            step: '01',
-            title: 'Discuss Your Delivery Goals',
-            description: 'We start with the business problem, constraints, urgency, and what success should look like.'
-        },
-        {
-            step: '02',
-            title: 'Shape the Right Build Approach',
-            description: 'We define the right team, scope, milestones, and working rhythm for the outcome you need.'
-        },
-        {
-            step: '03',
-            title: 'Launch in Measurable Phases',
-            description: 'We deliver in stages, create visibility, and refine based on results instead of guesswork.'
-        }
-    ];
-
-    const insights = [
-        {
-            title: 'Designing Smarter Internal Platforms for Growth Teams',
-            description: 'How modern internal systems reduce chaos, improve reporting, and support better decision-making.',
-            link: '/about',
-            image: imageAssets.team
-        },
-        {
-            title: 'What Good Digital Transformation Actually Looks Like',
-            description: 'A practical view of transformation that focuses on process clarity, execution, and measurable change.',
-            link: '/about',
-            image: imageAssets.presentation
-        },
-        {
-            title: 'Where AI and Automation Create Real Business Value',
-            description: 'The strongest AI opportunities usually come from workflow bottlenecks, not hype alone.',
-            link: '/contact',
-            image: imageAssets.meeting
-        }
-    ];
 
     return (
         <div className="home-page home-ishango">
